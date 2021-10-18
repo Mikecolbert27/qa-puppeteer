@@ -1,0 +1,47 @@
+{
+  "name": "qa-puppeteer",
+  "version": "1.0.0",
+  "description": "automation test with puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test:academy": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/academy",
+    "test:bqe-gaView": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/GA/gaView",
+    "test:bqe-wrongeuGuestCheckoutfromG5-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-wrongEUGuestCheckout-noCreditCard-fromG5",
+    "test:bqe-euGuestCheckoutfromG5-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-EUGuestCheckout-noCreditCard-fromG5-chromium",
+    "test:bqe-euMemberCheckoutfromG5-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000./test/BQE/Nordic//BQE-EUMemberCheckout-noCreditCard-fromG5-chromium",
+    "test:bqe-nordicMemberAndGuestCheckout-nocreditcard-chrome": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMemberAndGuestCheckout-chrome",
+    "test:bqe-nordicMemberAndGuestCheckout-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE/Nordic/BQE-NordicMemberAndGuestCheckout-chromium",
+    "test:bqe-nordicMemberAndGuestCheckout-nocreditcard-headless": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMemberAndGuestCheckout-headless",
+    "test:bqe-nordicMemberCheckout-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMemberCheckout-noCreditCard-chromium",
+    "test:bqe-nordicMemberCheckout-nocreditcard-chrome": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMemberCheckout-noCreditCard",
+    "test:bqe-nordicMemberCheckout-nocreditcard-headless": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMemberCheckout-noCreditCard-headless",
+    "test:bqe-nordicGuestCheckout-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicGuest-noCreditCard-chromium",
+    "test:bqe-nordicGuestCheckout-nocreditcard-headless": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicGuest-noCreditCard-headless",
+    "test:bqe-nordicGuestCheckout-nocreditcard-chrome": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicGuest-noCreditCard",
+    "test:bqe-nordicGuestCheckout-nocreditcard-removeerror": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicGuest-noCreditCard-removeerror",
+    "test:bqe-nordicMember-nocreditcard-chromium": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMember-noCreditCard-chromium",
+    "test:bqe-nordicMember-nocreditcard-headless": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/BQE/Nordic/BQE-NordicMember-noCreditCard-headless",
+    "test:bqe-nordicMember-nocreditcard-chrome": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ../test/BQE/Nordic/BQE-NordicMember-noCreditCard",
+    "test:bqe-nordicMember-nocreditcard-removeerror": "node ./node_modules/mocha/bin/mocha --timeout=300000000 ./test/BQE/Nordic/BQE-NordicMember-noCreditCard-removeerror",
+    "test:bqtw-g5-find-your-perfect-projector": "node ./node_modules/mocha/bin/mocha --timeout=300000000 ./test/BQE/Nordic/BQtw-findyourperfectprojector"
+  },
+  "keywords": [],
+  "author": "Celine",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-jest": "^27.2.1",
+    "chai": "^4.3.4",
+    "chromium": "^3.0.2",
+    "jest": "^27.2.1",
+    "mocha": "^9.1.1",
+    "puppeteer": "^10.4.0",
+    "puppeteer-core": "^10.2.0"
+  },
+  "devDependencies": {
+    "jest-allure": "^0.1.3",
+    "jest-puppeteer-allure": "^1.4.0",
+    "prettier": "^2.3.2"
+  }
+}
