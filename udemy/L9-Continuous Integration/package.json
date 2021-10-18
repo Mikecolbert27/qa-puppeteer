@@ -1,0 +1,21 @@
+{
+  "name": "l9-continuous-integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e-test": "node ./node_modules/mocha/bin/mocha  --timeout=30000 ./tests/e2e.test",
+    "test:smoke-test": "node ./node_modules/mocha/bin/mocha  --timeout=30000 ./tests/smoke.test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "prettier": "^2.4.1",
+    "puppeteer-chromium-resolver": "^10.0.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^10.4.0"
+  }
+}

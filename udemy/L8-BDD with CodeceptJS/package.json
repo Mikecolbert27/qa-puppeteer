@@ -1,0 +1,18 @@
+{
+  "name": "l8-bdd-with-codeceptjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Celine",
+  "license": "ISC",
+  "dependencies": {
+    "codeceptjs": "^3.0.0-beta.3",
+    "prettier": "^2.4.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^10.4.0"
+  }
+}

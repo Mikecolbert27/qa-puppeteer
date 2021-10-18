@@ -1,0 +1,26 @@
+{
+  "name": "l11-tips-and-tricks",
+  "version": "1.0.0",
+  "description": "tips and tricks",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha --timeout=30000 --require mocha-steps ./build/*.js",
+    "clean": "rm -rf build",
+    "build": "babel --persets es2015 -d build/ tests/"
+  },
+  "type": "module",
+  "author": "Celine",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "mocha-steps": "^1.3.0",
+    "puppeteer": "^10.4.0",
+    "puppeteer-core": "^10.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
