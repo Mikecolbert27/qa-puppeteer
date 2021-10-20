@@ -16,7 +16,7 @@ describe('BenQ Academy - Pass the test',()=>{
             "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
             headless:false,//無介面模式:有無需要開視窗,false要開,true不開
             slowMo:100,// slow down by 100ms
-            //devtools:false//有無需要開啟開發人員工具
+            devtools:true//有無需要開啟開發人員工具
         })
         page=await browser.newPage()
         //設定像素
@@ -72,15 +72,55 @@ describe('BenQ Academy - Pass the test',()=>{
         await page.waitForTimeout(10000)//等待10000毫秒
         //註冊完會自動導向至首頁
         const afterSignUpurl = await page.url()
-        expect(afterSignUpurl).to.include('https://www.benq.academy/')//斷言:此page的url必須包含example.com
+        expect(afterSignUpurl).to.include('https://www.benq.academy/')//斷言:此page的url必須包含https://www.benq.academy/
         console.log("After Sign Up URL :",afterSignUpurl)
     })
-    // it('Take a training class ',async function(){
+    it('Take a training class ',async function(){
+        await page.click('ul.nav-menu > li:nth-child(2) > a')
+        await page.waitForTimeout(10000)//等待10000毫秒
+        const trainedurl = await page.url()
+        expect(trainedurl).to.include('/trained')//斷言:此page的url必須包含/trained
+        await page.waitForTimeout(5000)//等待5000毫秒
+        //等待課程列表出現
+        await page.waitForSelector('#app')
+        //等待AMS課程出現
+        await page.waitForSelector('#app > div > div:nth-child(2) > ul > li:nth-child(12)')
+        //點擊AMS的trained按鈕
+        await page.waitForSelector('#app > div > div:nth-child(2) > ul > li:nth-child(12) > div:nth-child(2) > button')
+        await page.click('#app > div > div:nth-child(2) > ul > li:nth-child(12) > div:nth-child(2) > button')
+        await page.waitForTimeout(10000)//等待10000毫秒
+        //斷言是否進入課程
+        const trainedVideoUrl = await page.url()
+        expect(trainedVideoUrl).to.include('/video')//斷言:此page的url必須包含/video
+        expect(trainedVideoUrl).to.include('/QBMDQX')//斷言:此page的url是AMS的URL
+        console.log("trainedVideo URL :",trainedVideoUrl)
+        //等待課程播放器
+        await page.waitForSelector('#youtubePlay')
+        await page.click('#youtubePlay')
+        //影片64000毫秒+等待跳轉至Certification頁面10000毫秒
+        await page.waitForTimeout(75000)//等待75000毫秒
+        const afterTrainedUrl = await page.url()
+        expect(afterTrainedUrl).to.include('/trained/exam')//斷言:此page的url必須包含/trained/exam
+        expect(afterTrainedUrl).to.include('/QBMDQX')//斷言:此page的url是AMS的URL
+        console.log("After Trained URL :",afterTrainedUrl)
+        await page.waitForTimeout(5000)//等待5000毫秒
+    })
+    it('Certification',async function(){
+        await page.waitForSelector('#app')
+        //Q1答題區
+        await page.waitForSelector('#app > div > div.exam-box > div > div:nth-child(1) > div:nth-child(2)')
+        //Q2答題區
+        await page.waitForSelector('#app > div > div.exam-box > div > div:nth-child(2) > div:nth-child(2)')
+        //Q3答題區
+        await page.waitForSelector('#app > div > div.exam-box > div > div:nth-child(3) > div:nth-child(2)')
+        //Q4答題區
+        await page.waitForSelector('#app > div > div.exam-box > div > div:nth-child(4) > div:nth-child(2)')
+        //Q5答題區
+        await page.waitForSelector('#app > div > div.exam-box > div > div:nth-child(5) > div:nth-child(2)')
+
+
         
-    // })
-    // it('Certification',async function(){
-        
-    // })
+    })
     // it('Pass the test',async function(){
         
     // })
