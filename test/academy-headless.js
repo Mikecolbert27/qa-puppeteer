@@ -12,11 +12,9 @@ describe('BenQ Academy - Pass the test',()=>{
     //before:每個test case執行之前先做的動作(page/browswer)
     before(async function(){
         browser=await puppeteer.launch({
-            // executablePath:
-            // "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
             executablePath:
-            "./node_modules/puppeteer/.local-chromium/win32-901912/chrome-win/chrome",
-            headless:false,//無介面模式:有無需要開視窗,false要開,true不開
+            "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            headless:true,//無介面模式:有無需要開視窗,false要開,true不開
             slowMo:100,// slow down by 100ms
             devtools:false//有無需要開啟開發人員工具
         })
@@ -42,9 +40,6 @@ describe('BenQ Academy - Pass the test',()=>{
     it('Create a new account',async function(){
         await page.goto('https://www.benq.academy/register')
         await page.waitForSelector('form')
-        await page.waitForSelector('#register')
-
-        
         //First name
         await page.type('form > div:nth-child(1) > div:nth-child(1) > input ','Celine',{delay:10})
         await page.waitForTimeout(100)//等待100毫秒
