@@ -162,7 +162,6 @@ describe('BenQ Academy - Pass the test',()=>{
         //await page.waitForSelector('#app > div > div:nth-child(2) > div > div > ul > li') //share button*4
         await page.waitForTimeout(10000)//等待10000毫秒
         const date = new Date()
-        const day = date.getDate()
         function wholeMonth(){
             var getmonth = date.getMonth() + 1
             if(getmonth<10){
