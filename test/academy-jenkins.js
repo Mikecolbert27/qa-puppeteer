@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const expect = require('chai').expect;
-
+const fs = require('fs');
 const {click,getText,getCount,shouldExist,waitForText} = require('../lib/helper')
 
 const generateEmailonAcademy = require('../lib/utils').generateEmailonAcademy
@@ -55,6 +55,7 @@ describe('BenQ Academy - Pass the test',()=>{
         const testEmail = generateEmailonAcademy()
         await page.type('form > div:nth-child(2) > input ',testEmail,{delay:10})
         console.log("test email:",testEmail)
+        
         await page.waitForTimeout(5000)
         //Company, school or organization name
         await page.type('#Workplace','Test By Celine',{delay:10})
@@ -79,6 +80,41 @@ describe('BenQ Academy - Pass the test',()=>{
         const afterSignUpurl = await page.url()
         expect(afterSignUpurl).to.include('https://www.benq.academy/')//斷言:此page的url必須包含https://www.benq.academy/
         console.log("After Sign Up URL :",afterSignUpurl)
+        //Save Account name to the text file
+        const date = new Date()
+        function wholeMonth(){
+            var getmonth = date.getMonth() + 1
+            if(getmonth<10){
+                wholeMonth =  "0"+getmonth 
+                return wholeMonth
+            }else{
+                wholeMonth = getmonth 
+                return wholeMonth
+            }
+        }
+        function wholeDate(){
+            const getDay = date.getDate()
+            if(getDay<10){
+                wholeDate =  "0"+getDay
+                return wholeDate
+            }else{
+                wholeDate = getDay 
+                return wholeDate
+            }
+        }
+        const month = wholeMonth()
+        const day = wholeDate()
+        const year = date.getFullYear()
+        const fullDate = `${year}${month}${day}`
+        const fileName = "./Academy/logForAccount/logForAccount-"
+        const todayDate = fullDate
+        const fileTxt = ".txt"
+        const wholeFileName = fileName+todayDate+fileTxt
+        const logger = fs.createWriteStream(wholeFileName, {flags: 'a'})
+        const professionName = "ITS(profession)"
+        const className = "AWS(class)"
+        logger.write(`${fullDate} - ${professionName} - ${className} - ${testEmail}\n`)
+        logger.close()
     })
     it('Take a training class ',async function(){
         await page.click('ul.nav-menu > li:nth-child(2) > a')
@@ -191,10 +227,20 @@ describe('BenQ Academy - Pass the test',()=>{
         const day = wholeDate()
         const year = date.getFullYear()
         const fullDate = `${year}${month}${day}`
-        const certificationPath = "./certification/certification-"
+        const certificationPath = "./Academy/certification/certification-"
         const file = ".png"
         const certificationFileName = certificationPath + fullDate + file
         console.log(certificationFileName)
+        //將檔案內容輸出到終端機
+        const fileName = "./Academy/logForAccount/logForAccount-"
+        const todayDate = fullDate
+        const fileTxt = ".txt"
+        const wholeFileName = fileName+todayDate+fileTxt
+        var accountData = fs.readFileSync(wholeFileName)
+        const contentOfAccountData = accountData.toString()
+        console.log("Account Names are logged in",wholeFileName) 
+        console.log(contentOfAccountData) 
+        //screenshot
         await page.screenshot({path: certificationFileName, fullPage:true})
      })
 })
