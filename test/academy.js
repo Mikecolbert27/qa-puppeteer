@@ -106,7 +106,7 @@ describe('BenQ Academy - Pass the test',()=>{
         const day = wholeDate()
         const year = date.getFullYear()
         const fullDate = `${year}${month}${day}`
-        const fileName = "./logForAccount/logForAccount-"
+        const fileName = "./Academy/logForAccount/logForAccount-"
         const todayDate = fullDate
         const fileTxt = ".txt"
         const wholeFileName = fileName+todayDate+fileTxt
@@ -227,12 +227,12 @@ describe('BenQ Academy - Pass the test',()=>{
         const day = wholeDate()
         const year = date.getFullYear()
         const fullDate = `${year}${month}${day}`
-        const certificationPath = "./certification/certification-"
+        const certificationPath = "./Academy/certification/certification-"
         const file = ".png"
         const certificationFileName = certificationPath + fullDate + file
         console.log(certificationFileName)
         //將檔案內容輸出到終端機
-        const fileName = "./logForAccount/logForAccount-"
+        const fileName = "./Academy/logForAccount/logForAccount-"
         const todayDate = fullDate
         const fileTxt = ".txt"
         const wholeFileName = fileName+todayDate+fileTxt
