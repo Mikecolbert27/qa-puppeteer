@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:academy": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/academy",
+    "test:academy-jenkins": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/academy-jenkins",
     "test:academy-headless": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/academy-headless",
     "test:b2cEnusMonitor": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/enusMonitorKeySpec",
     "test:bqe-gaView": "node ./node_modules/mocha/bin/mocha --timeout=30000000 ./test/GA/gaView",
