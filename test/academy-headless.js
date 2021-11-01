@@ -173,7 +173,18 @@ describe('BenQ Academy - Pass the test',()=>{
                 return wholeMonth
             }
         }
+        function wholeDate(){
+            const getDay = date.getDate()
+            if(getDay<10){
+                wholeDate =  "0"+getDay
+                return wholeDate
+            }else{
+                wholeDate = getDay 
+                return wholeDate
+            }
+        }
         const month = wholeMonth()
+        const day = wholeDate()
         const year = date.getFullYear()
         const fullDate = `${year}${month}${day}`
         const certificationPath = "./certification/certification-"
